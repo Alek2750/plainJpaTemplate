@@ -46,6 +46,8 @@ public class FacadeTest {
         } finally {
             em.close();
         }
+        
+        
     }
 
     @Test
