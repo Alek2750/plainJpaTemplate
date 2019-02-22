@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class FacadeTest {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu", null);
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu-test", null);
 
     DemoFacade facade = new DemoFacade(emf);
 
