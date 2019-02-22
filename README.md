@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Alek2750/plainJpaTemplate.svg?branch=master)](https://travis-ci.org/Alek2750/plainJpaTemplate)
+
 # plainJpaTemplate
 Fork (or clone and delete the .git-folder) this project to get a ready to use template for JPA-development in a plain java project (no web server)
 
