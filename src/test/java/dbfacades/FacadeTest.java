@@ -77,7 +77,7 @@ public class FacadeTest {
     @Test
     public void TestGetCarsByMake() {
         List<Car> allCars = facade.getAllCars();
-        String expResult = "WW";
+        String expResult = "Volvo";
 
         Assert.assertEquals(expResult, allCars.get(0).getMake());
 
