@@ -54,7 +54,7 @@ public class FacadeTest {
     public void TestGetAllCars() {
         List<Car> allCars = facade.getAllCars();
         Assert.assertEquals(2, allCars.size());
-        Assert.assertEquals("Volvo", allCars.get(1).getMake());
+        Assert.assertEquals("WW", allCars.get(1).getMake());
     }
     // For som reason it says ID is 3
 //    but the database in workbench there is only ID 5 & 6
@@ -79,7 +79,7 @@ public class FacadeTest {
     @Test
     public void TestGetCarsByMake() {
         List<Car> allCars = facade.getAllCars();
-        String expResult = "WW";
+        String expResult = "Volvo";
 
         Assert.assertEquals(expResult, allCars.get(0).getMake());
 
