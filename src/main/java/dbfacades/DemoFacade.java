@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /*
 Simple Facade demo for this start-up project
@@ -55,7 +56,7 @@ public class DemoFacade {
 
     }
     
-    public Car deleteCarById(Car id)
+    public Car deleteCarById(int id)
     {
         EntityManager em = emf.createEntityManager();
         
@@ -86,9 +87,9 @@ public class DemoFacade {
         
         try
         {
-            em.getTransaction().begin();
+            
             c = em.find(Car.class, id);
-            em.getTransaction().commit();
+            
             return c;
         }
         finally
@@ -97,7 +98,7 @@ public class DemoFacade {
         }
     }
 
-    public Car getCArsByMake(String message)
+    public List<Car> getCArsByMake(String make)
     {
         EntityManager em = emf.createEntityManager();
         
@@ -105,10 +106,9 @@ public class DemoFacade {
         
         try
         {
-            em.getTransaction().begin();
-            c = em.find(Car.class, message);
-            em.getTransaction().commit();
-            return c;
+            Query q = em.createQuery("SELECT c FROM Car c WHERE c.make = :myMake");
+            q.setParameter("myMake", make);
+            return q.getResultList();
         }
         finally
         {

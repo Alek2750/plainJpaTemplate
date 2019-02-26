@@ -58,30 +58,32 @@ public class FacadeTest {
     }
     // For som reason it says ID is 3
 //    but the database in workbench there is only ID 5 & 6
-//    @Test
-//    public void testGetCarById() {
-//        List<Car> allCars = facade.getAllCars();
-//        Integer expResult = 5;
-//        //Car result = facade.getCarById(2);
-//
-//        assertEquals(expResult, allCars.get(0).getId());
-//
-//    }
+    @Test
+    public void testGetCarById() {
+        List<Car> allCars = facade.getAllCars();
+        Integer id = allCars.get(0).getId();
+        String expmake = allCars.get(0).getMake();
+        Car result = facade.getCarById(id);
+
+        assertEquals(result.getMake(), expmake);
+
+    }
 //      //Can not get a delete test to work
-//    @Test
-//    public void TestDeleteCarById() {
-//        Integer allCars = facade.deleteCarById(9);
-//        Car expResult = null;
-//
-//        Assert.assertEquals(expResult, allCars);
-//    }
+    @Test
+    public void TestDeleteCarById() {
+        List<Car> allCars = facade.getAllCars();
+        Integer id = allCars.get(0).getId();
+        facade.deleteCarById(id);
+        long count = facade.countCars();
+        Assert.assertEquals(1, count);
+    }
 
     @Test
     public void TestGetCarsByMake() {
-        List<Car> allCars = facade.getAllCars();
-        String expResult = "Volvo";
+        List<Car> allCars = facade.getCArsByMake("Volvo");
+        
 
-        Assert.assertEquals(expResult, allCars.get(0).getMake());
+        Assert.assertEquals("Volvo", allCars.get(0).getMake());
 
     }
 
