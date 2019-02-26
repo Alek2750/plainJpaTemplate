@@ -54,10 +54,9 @@ public class FacadeTest {
     public void TestGetAllCars() {
         List<Car> allCars = facade.getAllCars();
         Assert.assertEquals(2, allCars.size());
-        Assert.assertEquals("WW", allCars.get(1).getMake());
+        Assert.assertEquals("Volvo", allCars.get(1).getMake());
     }
-    // For som reason it says ID is 3
-//    but the database in workbench there is only ID 5 & 6
+  
     @Test
     public void testGetCarById() {
         List<Car> allCars = facade.getAllCars();
@@ -68,7 +67,7 @@ public class FacadeTest {
         assertEquals(result.getMake(), expmake);
 
     }
-//      //Can not get a delete test to work
+
     @Test
     public void TestDeleteCarById() {
         List<Car> allCars = facade.getAllCars();
